@@ -1,0 +1,81 @@
+#map-canvas
+{
+	width: 800px;
+	height: 500px;
+}
+
+
+
+#setUpProfilePopup
+{
+	padding: 20px;
+	width: 400px;
+}
+
+#setUpProfilePopup div:not(:first-child)
+{
+	display: none;
+}
+
+#setUpProfilePopup input, #setUpProfilePopup select
+{
+	display: block;
+	padding: 10px;
+	margin: 10px auto;
+}
+
+#setUpProfilePopup #nextButton
+{
+	float: right;
+}
+
+#setUpProfilePopup #doneButton
+{
+	float: right;
+	display: none;
+}
+
+#setUpProfilePopup #buttonGroup
+{
+	display: none;
+}
+
+#setUpProfilePopup #buttonGroup .button-gold
+{
+	padding: 7px;
+	font-size: 18px;
+}
+
+#setUpProfilePopup p
+{
+	font-size: 20px;
+	margin: 20px 0;
+}
+
+#setUpProfilePopup #welcome-area .button-gold
+{
+	padding: 7px;
+	font-size: 18px;
+	display: inline-block;
+	margin: 0 2px;
+	position: relative;
+	left: 121px; 
+
+}
+
+#setUpProfilePopup #contact-area #emailCheckbox
+{
+	display: block;
+	width: 180px;
+	margin: 10px auto;
+}
+
+#setUpProfilePopup #contact-area #emailCheckbox > *
+{
+	display: inline-block;
+}
+
+#setUpProfilePopup #finished-area
+{
+  text-align: center;
+}

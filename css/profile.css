@@ -1,0 +1,181 @@
+#centerWrapper
+{
+	width: 60%;
+	margin: 0 auto;
+}
+
+main, aside
+{
+  background: rgba(247,247,247,1);
+  background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(252,252,252,1) 10%, rgba(252,252,252,1) 90%, rgba(247,247,247,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(247,247,247,1)), color-stop(10%, rgba(252,252,252,1)), color-stop(90%, rgba(252,252,252,1)), color-stop(100%, rgba(247,247,247,1)));
+  background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(252,252,252,1) 10%, rgba(252,252,252,1) 90%, rgba(247,247,247,1) 100%);
+  background: -o-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(252,252,252,1) 10%, rgba(252,252,252,1) 90%, rgba(247,247,247,1) 100%);
+  background: -ms-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(252,252,252,1) 10%, rgba(252,252,252,1) 90%, rgba(247,247,247,1) 100%);
+  background: linear-gradient(to bottom, rgba(247,247,247,1) 0%, rgba(252,252,252,1) 10%, rgba(252,252,252,1) 90%, rgba(247,247,247,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f7f7f7', GradientType=0 );
+}
+
+main
+{
+	border: 1px solid #C0C0C0;
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+  text-align: center;
+	margin: 20px auto;
+	padding: 30px;
+	width: 70%;
+	min-width: 310px;
+}
+
+main .main-info
+{
+	margin-top: 15px;
+  
+}
+
+
+
+main #profilePic
+{
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+	width: 295px;
+	height: 295px;
+	border: 1px solid #C0C0C0;
+	padding: 5px;
+	background: #FFFFFF;
+	margin: 0 auto;
+}
+
+main #profilePic img
+{
+	width: 295px;
+	height: 295px;
+}
+
+.main-info #fullName
+{
+	margin-top: 10px;
+	font-size: 55px;
+
+}
+
+.main-info #class
+{
+	display: block;
+	margin: 5px 0;
+	font-size: 30px;
+}
+
+aside
+{
+	border: 1px solid #C0C0C0;
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+  word-wrap: break-word;
+	padding: 20px;
+	width: 40%;
+	min-width: 330px;
+	margin: 20px auto;
+}
+
+aside h3
+{
+	text-decoration: underline;
+}
+
+aside #notSetUp
+{
+	font-size: 25px;
+}
+
+aside ul
+{
+	list-style-position: inside;
+
+	background: #F7F7F7;
+	border: 1px solid #C0C0C0;
+	margin: 10px 0;
+    padding: 5px;
+}
+
+aside ul .title
+{
+	font-size: 25px;
+	font-weight: 600;
+}
+
+aside ul li
+{
+	margin: 5px 0;
+	font-size: 20px;
+	list-style-type: none;
+
+}
+
+aside ul li span
+{
+
+}
+
+aside ul li a
+{
+	color: #00573C;
+}
+
+aside ul li a:hover
+{
+	color: #D4AD72;
+}
+
+main .main-info .connectionButton
+{
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+main .main-info .connectionButton span
+{
+  float: right;
+}
+
+main .main-info .connectionButton img
+{
+  display: inline;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+main .main-info #requestedText
+{
+  font-size: 18px;
+  display: inline-block;
+  margin: 20px 0 10px 0;
+}
+
+main .main-info #confirmed-btn:hover
+{
+
+}
+
+
+main .main-info #requested-btn
+{
+
+}
+
+main .main-info #requested-btn:hover
+{
+
+}

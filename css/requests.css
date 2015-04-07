@@ -1,0 +1,55 @@
+main
+{
+	width: 70%;
+	margin: 0 auto;
+}
+
+main h2
+{
+	margin: 20px 0;
+}
+
+main .list
+{
+	list-style: none;
+}
+
+main .list li
+{
+	background: #FCFCFC;
+	border: 1px solid #C0C0C0;
+	margin: 7px 0;
+	height: 90px;
+	box-shadow: inset 10px -5px 10px #eee;
+}
+
+main .list li img
+{
+	width: 90px;
+	height: 90px;
+}
+
+main .list li .info
+{
+	display: inline-block;
+	position: relative;
+	bottom: 22px;
+	margin-left: 5px;
+}
+
+main .list li .name
+{
+	font-size: 28px;
+	color: #00573C;
+}
+
+main .list li .name:hover
+{
+	color: #D4AD72;
+}
+
+main .list li .gradYear
+{
+	font-size: 20px;
+	margin-top: 5px;
+}
