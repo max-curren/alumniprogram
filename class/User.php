@@ -1,28 +1,41 @@
 <?php
 	class User
 	{
-		
+		private $email;
+    private $password;
+    private $firstName;
+    private $lastName;
+    private $gradYear;
+    
+    function User($email = "", $password = "", $firstName = "", $lastName = "", $gradYear = "")
+    {
+      $this->email = $email;
+      $this->password = $password;
+      $this->firstname = $firstName;
+      $this->lastname = $lastName;
+      $this->gradYear = $gradYear;
+    }
 
-		function registerUser($email, $password, $firstName, $lastName, $gradYear)
+		function registerUser()
 		{
 			include "Database.php";
 			$dbObj = new Database;
 			$dbConnection = $dbObj->connectToDB();
 
-			$password = password_hash($password, PASSWORD_DEFAULT);
+			$password = password_hash($this->password, PASSWORD_DEFAULT);
 
-			if($this->doesEmailExist($email) == true)
+			if($this->doesEmailExist($this->email) == true)
 			{
 				return "That email already exists.";
 			}
 			else
 			{
 				$registerQuery = $dbConnection->prepare("INSERT INTO users (email, password, firstName, lastName, gradYear) VALUES (?, ?, ?, ?, ?)");
-				$dataToInsert = array($email, $password, $firstName, $lastName, $gradYear); //used to insert the data into the prepared statement
+				$dataToInsert = array($this->email, $this->password, $this->firstName, $this->lastName, $this->gradYear); //used to insert the data into the prepared statement
 
 				if($registerQuery->execute($dataToInsert))
 				{
-					$this->createUserSession($email, $dbConnection->lastInsertId(), $firstName, $lastName, $gradYear, "default.png", false);
+					$this->createUserSession($this->email, $dbConnection->lastInsertId(), $this->firstName, $this->lastName, $this->gradYear, "default.png", false);
 
 					return true;
 				}
@@ -33,7 +46,7 @@
 			}
 		}
 
-		function doesEmailExist($email)
+		private function doesEmailExist($email)
 		{
 			$dbObj = new Database;
 			$dbConnection = $dbObj->connectToDB();
@@ -52,23 +65,23 @@
 			}
 		}
 
-		function loginUser($email, $password)
+		function loginUser()
 		{
 			include "Database.php";
 			$dbObj = new Database;
 			$dbConnection = $dbObj->connectToDB();
 
 			$loginQuery = $dbConnection->prepare("SELECT userID, password, firstName, lastName, gradYear, profilePic, hasSetUpProfile FROM users WHERE email = :email");
-			$loginQuery->bindParam(":email", $email);
+			$loginQuery->bindParam(":email", $this->email);
 			//$loginQuery->bindParam(":password", $password);
 			$loginQuery->execute();
 
 			if($loginQuery->rowCount() > 0)
 			{
 				$results = $loginQuery->fetch(PDO::FETCH_ASSOC);
-				if(password_verify($password, $results["password"]))
+				if(password_verify($this->password, $results["password"]))
 				{
-					$this->createUserSession($email, $results["userID"], $results["firstName"], $results["lastName"], $results["gradYear"], $results["profilePic"], $results["hasSetUpProfile"]);
+					$this->createUserSession($this->email, $results["userID"], $results["firstName"], $results["lastName"], $results["gradYear"], $results["profilePic"], $results["hasSetUpProfile"]);
 					return true;
 				}
 				else

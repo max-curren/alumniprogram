@@ -7,11 +7,13 @@
       session_start();
     }
     
-    include "class/Connect.php";
-    $connectObj = new Connect;
-
     $userID = $_SESSION["id"];
     $requestedID = $_POST["requestedID"];
+    
+    include "class/Connect.php";
+    $connectObj = new Connect($userID, $requestedID);
+
+    
     
     $result;
     

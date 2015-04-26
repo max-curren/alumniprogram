@@ -7,8 +7,8 @@
 		}
     
     include "class/Connect.php";
-    $connectObj = new Connect;
-    $results = $connectObj->getRequests($_SESSION["id"]);
+    $connectObj = new Connect($_SESSION["id"]);
+    $results = $connectObj->getRequests();
       
     if(is_array($results) == true)
     {

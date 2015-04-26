@@ -9,9 +9,9 @@
     <?php
       include "includes/header_user.php";
       include "class/Connect.php";
-      $connectObj = new Connect;
+      $connectObj = new Connect($_SESSION["id"]);
 
-      $requestList = $connectObj->getRequests($_SESSION["id"]);
+      $requestList = $connectObj->getRequests();
       if(is_array($requestList) != true)
       {
         echo $results;

@@ -3,9 +3,8 @@
 	if(isset($_POST["isValidRequest"]) && $_POST["isValidRequest"] == true)
 	{
 		include "class/User.php";
-		$userObj = new User;
-
-		$result = $userObj->loginUser(strtolower($_POST["email"]), $_POST["password"]);
+		$userObj = new User(strtolower($_POST["email"]), $_POST["password"]);
+		$result = $userObj->loginUser();
 
 		if($result === true)
 		{
