@@ -7,7 +7,7 @@
     private $lastName;
     private $gradYear;
     
-    function User($email = "", $password = "", $firstName = "", $lastName = "", $gradYear = "")
+    function __construct($email = "", $password = "", $firstName = "", $lastName = "", $gradYear = "")
     {
       $this->email = $email;
       $this->password = $password;

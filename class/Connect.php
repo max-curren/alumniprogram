@@ -4,7 +4,7 @@
     private $userID;
     private $requestedID;
     
-    function Connect($userID = 0, $requestedID = 0)
+    function __construct($userID = 0, $requestedID = 0)
     {
       $this->userID = $userID;
       $this->requestedID = $requestedID;
