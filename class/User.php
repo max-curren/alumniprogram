@@ -30,8 +30,9 @@
 			}
 			else
 			{
-				$registerQuery = $dbConnection->prepare("INSERT INTO users (email, password, firstName, lastName, gradYear) VALUES (?, ?, ?, ?, ?)");
-				$dataToInsert = array($this->email, $this->password, $this->firstName, $this->lastName, $this->gradYear); //used to insert the data into the prepared statement
+				$registerQuery = $dbConnection->prepare("INSERT INTO users (email, password, firstName, lastName, fullName, gradYear) VALUES (?, ?, ?, ?, ?, ?)");
+				$fullName = $this->firstName . " " . $this->lastName;
+				$dataToInsert = array($this->email, $this->password, $this->firstName, $this->lastName, $fullName, $this->gradYear); //used to insert the data into the prepared statement
 
 				if($registerQuery->execute($dataToInsert))
 				{

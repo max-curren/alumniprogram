@@ -6,26 +6,41 @@
 			
 ?>
 <script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 
 <header>
     <a id="logo" href="index.php">BFHS Alumni Network</a>
 
+
+    
+
+
     <div id="header-user-group">
+      <?php
+        echo "<div id='img-container'><img src='profilePics/". $_SESSION["profilePic"] ."' /></div>";
+      ?>
       <div id='info-group'>
         <?php
           echo "<a href='profile.php'>". $_SESSION["firstName"] ." ". $_SESSION["lastName"] ."</p>";
         ?>
           
-        <a class="dropdown-toggle" id='more-toggle' href='#'><img src='icons/dots.png' /></a>
-        <a class="dropdown-toggle" id='messages-toggle' href='#'><img src='icons/chat.png' /></a>
         <a class="dropdown-toggle" id='requests-toggle' href='#'><img src='icons/requests.png' /></a>
+        <a class="dropdown-toggle" id='messages-toggle' href='#'><img src='icons/chat.png' /></a>
+        <a class="dropdown-toggle" id='more-toggle' href='#'><img src='icons/dots.png' /></a>
+        
       </div>
-      <?php
-	    	echo "<div id='img-container'><img src='profilePics/". $_SESSION["profilePic"] ."' /></div>";
-    	?>
+      
     </div>
       
-    
+    <div id="search">
+      <input type="text" id="searchbox" placeholder="Search" />
+
+      <div id="suggestions">
+        <ul>
+
+        </ul>
+      </div>
+    </div>
  
 
 </header>

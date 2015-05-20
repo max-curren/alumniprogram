@@ -1,14 +1,14 @@
 <?php
-	class Profile
-	{
+class Profile
+{
 
-		function setupComplete()
-		{
+	function setupComplete()
+	{
 			if(session_id() == "") //if session isn't already started
 			{
 				session_start();
-      }
-      
+			}
+			
 			$userID = $_SESSION["id"];
 
 			include "Database.php";
@@ -70,32 +70,32 @@
 				return false;
 			}
 		}
-    
-    function doesProfileExist($id)
-    {
-      include_once "Database.php";
+		
+		function doesProfileExist($id)
+		{
+			include_once "Database.php";
 			$dbObj = new Database;
 			$dbConnection = $dbObj->connectToDB();
-      
-      $doesProfileExistQuery = $dbConnection->prepare("SELECT userID FROM users WHERE userID = '$id'");
-      
-      if($doesProfileExistQuery->execute())
-      {
-        if($doesProfileExistQuery->rowCount() == 1)
-        {
-          return true;
-        }
-        else
-        {
-          return false;
-        }
-      }
-      else
-      {
-        return "An error has occurred, please try again later.";
-      }
+			
+			$doesProfileExistQuery = $dbConnection->prepare("SELECT userID FROM users WHERE userID = '$id'");
+			
+			if($doesProfileExistQuery->execute())
+			{
+				if($doesProfileExistQuery->rowCount() == 1)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return "An error has occurred, please try again later.";
+			}
 
-    }
+		}
 
 	}
 ?>

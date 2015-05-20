@@ -34,13 +34,12 @@ $(document).ready(function()
           {
             $("#requests-dropdown ul").append("<li><span id='noRequests'>You currently have no requests.</span></li>");
           }
-          var count = 0;
-          while(count < requests.length && count < showRequestsLimit) 
+
+          for(var counter = 0; counter < requests.length && counter < showRequestsLimit; counter++) 
           {
             $("#requests-dropdown ul").append(
-              "<li><img class='profilePic' src='profilePics/" + requests[count].profilePic + "' /><a class='name' href='profile.php?id=" + requests[count].userID + "'>" + requests[count].firstName + " " + requests[count].lastName + "</a><span class='gradYear'>Class of " + requests[count].gradYear + "</span><div id='"+ requests[count].userID +"' class='btnGroup'><a href='#' class='button-grey requestBtn accept'><img class='btn-icon' src='icons/checkmark.png' /><span>Accept</span></a><a href='#' class='button-grey requestBtn reject'><img class='btn-icon' src='icons/cross.png' /><span>Reject</span></a></div></li>"
+              "<li><img class='profilePic' src='profilePics/" + requests[counter].profilePic + "' /><a class='name' href='profile.php?id=" + requests[counter].userID + "'>" + requests[counter].firstName + " " + requests[counter].lastName + "</a><span class='gradYear'>Class of " + requests[counter].gradYear + "</span><div id='"+ requests[counter].userID +"' class='btnGroup'><a href='#' class='button-grey requestBtn accept'><img class='btn-icon' src='icons/checkmark.png' /><span>Accept</span></a><a href='#' class='button-grey requestBtn reject'><img class='btn-icon' src='icons/cross.png' /><span>Reject</span></a></div></li>"
                                              );
-            count++;
           }
           
           if(requests.length > showRequestsLimit)
