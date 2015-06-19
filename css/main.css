@@ -196,13 +196,13 @@ header #header-button-group
 {
    float: right;
    height: 75px;
-   margin: 0 10px;
+   margin: 0 5px;
 }
 
 #header-user-group #info-group
 {
    float: left;
-   margin: 15px 0 0 0;
+   margin: 10px 0 0 0;
 }
 
 #header-user-group #info-group a
@@ -223,7 +223,7 @@ header #header-button-group
 #header-user-group #info-group .dropdown-toggle
 {
   display: inline-block;
-  margin-right: 5px;
+  margin: 0 4px 0 1px;
 }
 
 #header-user-group #info-group .dropdown-toggle img
@@ -285,7 +285,7 @@ header #header-button-group
 {
   width: 350px;
   position: absolute;
-  right: 155px;
+  right: 106px;
   margin-top: 10px;
 }
 
@@ -384,7 +384,7 @@ header #header-button-group
 {
   width: 100px;
   position: absolute;
-  right: 91px;
+  right: 45px;
   margin-top: 10px;
 }
 
@@ -479,7 +479,7 @@ header #header-button-group
   width: 275px;
   display: inline-block;
   float: right;
-  margin: 22.5px 20px;
+  margin: 22.5px 30px;
 }
 
 #searchbox
@@ -487,7 +487,7 @@ header #header-button-group
 
   font-size: 18px;
   width: 275px;
-  height: 25px;
+  padding: 5px;
 }
 
 #suggestions

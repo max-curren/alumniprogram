@@ -133,8 +133,59 @@
         return "An error has occurred, please try again later.";
       }
     }
+
+    function getConnections()
+    {
+      include_once "Database.php";
+      $dbObj = new Database;
+      $dbConnection = $dbObj->connectToDB();
+
+      $getConnections = $dbConnection->prepare("SELECT connecter_one, connecter_two FROM connections WHERE (connecter_one = '$this->userID' OR connecter_two = '$this->userID') AND (connecter_one = '$this->requestedID' OR connecter_two = '$this->requestedID')");
+
+      if($getConnections->execute())
+      {
+        $results = $getConnections->fetchAll(PDO::FETCH_ASSOC);
+        $info = array();
+        
+        for($counter = 0; $counter < count($results); $counter++)
+        {
+          if($results[$counter]["connecter_one"] == $this->userID)
+          {
+            $connecterID = $results[$counter]["connecter_two"];
+          }
+          else
+          {
+            $connecterID = $results[$counter]["connecter_one"];
+          }
+
+          $getInfo = $dbConnection->prepare("SELECT userID, firstName, lastName, gradYear, profilePic FROM users WHERE userID = '$connecterID'");
+          $getInfo->execute();
+          $info[$counter] = $getInfo->fetch(PDO::FETCH_ASSOC);
+        }
+    
+        return $info;
+      }
+      else
+      {
+        return "An error has occurred, please try again later. (Connect.php, getConnections(), Mysql query failed)";
+      }
+    }
+
+    function getConnectionsNumber()
+    {
+      if(is_array($gc = $this->getConnections) == true)
+      {
+        return count($gc);
+      }
+      else
+      {
+        return "An error has occurred, please try again later. (Connect.php, getConnectionsNumber(), Call to getConnections() failed)";
+      }
+
+      
+    }
     
     
-    
-	}
+	  
+  }
 ?>

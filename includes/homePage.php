@@ -12,10 +12,6 @@
   <a href="#" id="registerPopup-toggle" class="button-gold">Register</a>
 </div>
 
-<div id="main-strip">
-  
-</div>
-
 
 
 <div class="centered-popup" id="registerPopup">

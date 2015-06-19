@@ -10,26 +10,62 @@
 
   	<?php
   		if(session_id() == "") //if session isn't already started
+      {
+        session_start();
+      }
+
+      if(empty($_SESSION["id"])) //if signed in
+      {
+          header("Location: index.php");
+      }
+
+      $userID = 0;
+
+      if(empty($_GET["t"]) || $_GET["t"] == "" || $_GET["t"] == 0)
+      {
+        $listType = 0;
+      }
+      else if($_GET["t"] == 1)
+      {
+        $listType = 1;
+      }
+      else if($_GET["t"] == 2)
+      {
+        if(empty($_GET["id"]) || $_GET["id"] == "")
         {
-          session_start();
+          $listType = 0;
         }
-
-        if(empty($_SESSION["id"])) //if signed in
+        else
         {
-            header("Location: index.php");
+          $listType = 2;
+          $userID = $_GET["id"];
         }
+        
+      }
 
-		include "class/User.php";
-		$userObj = new User;
+  		include "class/User.php";
+  		$userObj = new User;
 
-		$userList = $userObj->getUserList();
+  		if(is_array($userList = $userObj->getUserList($listType, $userID)) != true)
+      {
+        die($userList);
+      }
 
-		include "includes/header_user.php";
-	?>
+  		include "includes/header_user.php";
+  	?>
 
   	<main id="userList">
-  		<h2>List of Registered Alumni</h2>
-      <input type="text" class="search" placeholder="Search (name or year)" />
+      <?php
+        if($listType == 0)
+        {
+          echo "<h2>List of Registered Alumni</h2>";
+          echo '<input type="text" class="search" placeholder="Search" />';
+        }
+        else if($listType == 1)
+        {
+          echo "<h2>Connection Requests</h2>";
+        }
+      ?>
 
   		<ul class="list">
   			<?php

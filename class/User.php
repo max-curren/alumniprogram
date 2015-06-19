@@ -1,7 +1,7 @@
 <?php
 	class User
 	{
-		private $email;
+		public $email;
     private $password;
     private $firstName;
     private $lastName;
@@ -116,7 +116,7 @@
 			}
 		}
 
-		function getUserList()
+		function getUserList($type, $userID = 0) //types- 0 = all, 1 = requests, 2 = friends
 		{
 			include "Database.php";
 			$dbObj = new Database;
@@ -128,7 +128,33 @@
 			//	$query = $query . " WHERE gradYear IN ($limitByYear)";
 			//}
 
-			$getListQuery = $dbConnection->prepare("SELECT userID, firstName, lastName, gradYear, profilePic FROM users ORDER BY gradYear DESC, lastName, firstName");
+			if($type == 0)
+			{
+				$getListQuery = $dbConnection->prepare("SELECT userID, firstName, lastName, gradYear, profilePic FROM users ORDER BY gradYear DESC, lastName, firstName");
+			}
+			else if($type == 1)
+			{
+				if(session_id() == "") //if session isn't already started
+				{
+					session_start();
+				}
+
+				include "Connect.php";
+				$connectObj = new Connect($_SESSION["id"]);
+
+				return $connectObj->getRequests();
+			}
+			else if($type == 2)
+			{
+				include "Connect.php";
+				$connectObj = new Connect($userID);
+
+				return $connectObj->getConnections();
+			}
+			else
+			{
+				return "ERROR: Invalid list type.";
+			}
 
 			if($getListQuery->execute())
 			{
