@@ -1,7 +1,4 @@
-<script type="text/javascript">
-  var profileID = GetURLParameter('id');
-  $(['icons/cross.png', 'icons/message.png', 'icons/checkmark.png', 'icons/connect.png', 'icons/check59.png', 'profilePics/18.jpeg', 'profilePics/default.png']).preload();
-</script>
+
 
 <html lang="en">
   <head>
@@ -19,7 +16,7 @@
           session_start();
         }
 
-        if(isset($_SESSION["id"])) //if signed in
+        if(isset($_SESSION["id"]) && isset($_COOKIE["userDetails"])) //if signed in
         {
             if(!isset($_GET["id"]) || $_GET["id"] == "")
             {
@@ -29,6 +26,13 @@
         else
         {
             header("Location: index.php");
+        }
+
+        if(!isset($_SESSION["id"] && isset($_COOKIE["userDetails"]))
+        {
+          include_once "class/User.php";
+          $userObj = new User();
+          $userObj->cookieLogin($_COOKIE["userDetails"]);
         }
 
 
@@ -65,12 +69,12 @@
                 echo "</div>";
 
                 echo "<div class='main-info'>";
-                  echo "<span id='fullName'>". $profileData[0]["firstName"] ." ". $profileData[0]["lastName"] ."</span>";
-                  echo "<span id='class'>Class of ". $profileData[0]["gradYear"] ."</span>";
+                  echo "<p id='fullName'>". $profileData[0]["firstName"] ." ". $profileData[0]["lastName"] ."</p>";
+                  echo "<p id='class'>Class of ". $profileData[0]["gradYear"] ."</p>";
                   
                   include "class/Connect.php";
-                  $connectObj = new Connect;
-                  $connectionStatus = $connectObj->checkConnection($_SESSION["id"], $_GET["id"]);
+                  $connectObj = new Connect($_SESSION["id"], $_GET["id"]);
+                  $connectionStatus = $connectObj->checkConnection();
 
                     if($connectionStatus == 0)
                     {
@@ -86,11 +90,11 @@
                     }
                     else if($connectionStatus == 4)
                     {
+                      echo "<p id='requestHeader'>". $profileData[0]["firstName"] . " " . $profileData[0]["lastName"] . " has requested to follow you: </p>";
                       echo "<a href='#' id='acceptRequest-btn' class='button-grey connectionButton'><img src='icons/checkmark.png' /><span>Accept</span></a>";
                       echo "<a href='#' id='rejectRequest-btn' class='button-grey connectionButton'><img src='icons/cross.png' /><span>Reject</span></a>";
                     }
                     
-                  
                  
 
                 echo "</div>";

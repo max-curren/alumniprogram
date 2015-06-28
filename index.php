@@ -26,6 +26,14 @@
     {
       include "includes/homePage.php";
     }
+
+    if(!isset($_SESSION["id"]) && isset($_COOKIE["userDetails"]))
+    {
+      include_once "class/User.php";
+      $userObj = new User();
+      $userObj->cookieLogin($_COOKIE["userDetails"]);
+      header("Location: index.php");
+    }
     
 
   ?>

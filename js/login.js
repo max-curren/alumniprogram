@@ -30,9 +30,9 @@ $(document).ready(function() {
 
 	$("#login-submit").click(function()
 	{
-
 		var email = $.trim($("#login-email").val());
 		var password = $.trim($("#login-password").val());
+		var rememberMe = $("#rememberMe").is(':checked');
 
 		if(checkInputtedValues(email, password) == true)
 		{
@@ -42,7 +42,7 @@ $(document).ready(function() {
 			({
 				type: "POST",
 				url: "processLogin.php",
-				data: {isValidRequest: true, email: email, password: password}
+				data: {isValidRequest: true, email: email, password: password, rememberMe: rememberMe}
 			});
 
 			ajaxRequest.done(function(msg)

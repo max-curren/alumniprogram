@@ -54,9 +54,31 @@ html {
 	padding: 10px;
 }
 
+#loginForm #rm-div
+{
+  width: 131px;
+  margin: 0 auto;
+}
+
+#loginForm #rm-div label
+{
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#loginForm #rm-div #rememberMe
+{
+  display: inline-block;
+}
+
 span#registrationErrors
 {
 	color: red;
+}
+
+#login-submit
+{
+  margin-top: 0px;
 }
 
 

@@ -131,7 +131,7 @@ $(document).ready(function()
 			 if(msg == "success")
 			 {
 			   $("#acceptRequest-btn").replaceWith("<a href='#' id='confirmed-btn' class='button-grey connectionButton'><img src='icons/check59.png' /><span>Connected</span></a>");
-         $("#rejectRequest-btn").replaceWith("");
+         $("#rejectRequest-btn").remove();
 			 }
        else
        {

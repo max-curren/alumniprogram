@@ -4,7 +4,7 @@
 	{
 		include "class/User.php";
 		$userObj = new User(strtolower($_POST["email"]), $_POST["password"]);
-		$result = $userObj->loginUser();
+		$result = $userObj->loginUser($_POST["rememberMe"]);
 
 		if($result === true)
 		{

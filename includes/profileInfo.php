@@ -1,6 +1,15 @@
 <h3 class="centered-text">About Me</h3>
 
 <ul>
+    <span class="title">Location</span>
+    <li>
+    <?php
+        echo $profileData[0]["city"] . ", " . $profileData[0]["state"];
+    ?>
+    </li>
+</ul>
+
+<ul>
 	<span class="title">Location</span>
     <li>
     <?php

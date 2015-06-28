@@ -38,6 +38,7 @@
 
     <input type="email" name="email" id="login-email" placeholder="Email" />
     <input type="password" id="login-password" placeholder="Password" />
+    <div id="rm-div"><label for="rememberMe">Remember Me</label><input type="checkbox" id="rememberMe" value="checked" /></div>
     <input type="button" id="login-submit" value="Login" />
 
     <span id="loginErrors" class="error-span centered-text"></span>

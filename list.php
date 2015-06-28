@@ -14,9 +14,16 @@
         session_start();
       }
 
-      if(empty($_SESSION["id"])) //if signed in
+      if(empty($_SESSION["id"])) //if not signed in
       {
           header("Location: index.php");
+      }
+
+      if(!isset($_SESSION["id"] && isset($_COOKIE["userDetails"]))
+      {
+        include_once "class/User.php";
+        $userObj = new User();
+        $userObj->cookieLogin($_COOKIE["userDetails"]);
       }
 
       $userID = 0;
@@ -64,6 +71,12 @@
         else if($listType == 1)
         {
           echo "<h2>Connection Requests</h2>";
+        }
+        else if($listType == 2)
+        {
+
+          echo "<h2>Their Connections</h2>"
+
         }
       ?>
 

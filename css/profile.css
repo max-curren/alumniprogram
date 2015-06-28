@@ -58,18 +58,66 @@ main #profilePic img
 	height: 295px;
 }
 
-.main-info #fullName
+main .main-info #fullName
 {
 	margin-top: 10px;
 	font-size: 55px;
+}
+
+main .main-info #class
+{
+	margin: 5px 0;
+	font-size: 30px;
+}
+
+main .main-info #requestHeader
+{
+	margin: 15px 0 5px 0;
+}
+
+main .main-info .connectionButton
+{
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+main .main-info .connectionButton span
+{
+  float: right;
+}
+
+main .main-info .connectionButton img
+{
+  display: inline;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+main .main-info #requestedText
+{
+  font-size: 18px;
+  display: inline-block;
+  margin: 20px 0 10px 0;
+}
+
+main .main-info #confirmed-btn:hover
+{
 
 }
 
-.main-info #class
+
+main .main-info #requested-btn
 {
-	display: block;
-	margin: 5px 0;
-	font-size: 30px;
+
+}
+
+main .main-info #requested-btn:hover
+{
+
 }
 
 aside
@@ -135,47 +183,4 @@ aside ul li a:hover
 	color: #D4AD72;
 }
 
-main .main-info .connectionButton
-{
-  font-size: 20px;
-  display: inline-block;
-  padding: 10px;
-  margin-top: 5px;
-}
 
-main .main-info .connectionButton span
-{
-  float: right;
-}
-
-main .main-info .connectionButton img
-{
-  display: inline;
-  vertical-align: middle;
-  width: 18px;
-  height: 18px;
-  margin-right: 5px;
-}
-
-main .main-info #requestedText
-{
-  font-size: 18px;
-  display: inline-block;
-  margin: 20px 0 10px 0;
-}
-
-main .main-info #confirmed-btn:hover
-{
-
-}
-
-
-main .main-info #requested-btn
-{
-
-}
-
-main .main-info #requested-btn:hover
-{
-
-}

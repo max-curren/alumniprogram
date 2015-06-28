@@ -66,7 +66,7 @@
 			}
 		}
 
-		function loginUser()
+		function loginUser($rememberMe)
 		{
 			include "Database.php";
 			$dbObj = new Database;
@@ -83,6 +83,13 @@
 				if(password_verify($this->password, $results["password"]))
 				{
 					$this->createUserSession($this->email, $results["userID"], $results["firstName"], $results["lastName"], $results["gradYear"], $results["profilePic"], $results["hasSetUpProfile"]);
+					
+
+					if($rememberMe == "true")
+					{
+						$this->setCookies($results);
+					}
+
 					return true;
 				}
 				else
@@ -94,6 +101,22 @@
 			{
 				return "That username/password combo does not exist.";
 			}
+		}
+
+		private function setCookies($results)
+		{
+			setcookie("userDetails[email]", $this->email, time() + 2592000);
+			setcookie("userDetails[id]", $results["userID"], time() + 2592000);
+			setcookie("userDetails[firstName]", $results["firstName"], time() + 2592000);
+			setcookie("userDetails[lastName]", $results["lastName"], time() + 2592000);
+			setcookie("userDetails[gradYear]", $results["gradYear"], time() + 2592000);
+			setcookie("userDetails[profilePic]", $results["profilePic"], time() + 2592000);
+			setcookie("userDetails[hasSetUpProfile]", $results["hasSetUpProfile"], time() + 2592000);
+		}
+
+		function cookieLogin($userDetails)
+		{
+			$this->createUserSession($userDetails["email"], $userDetails["id"], $userDetails["firstName"], $userDetails["lastName"], $userDetails["gradYear"], $userDetails["profilePic"], $userDetails["hasSetUpProfile"]);
 		}
 
 		function createUserSession($email, $id, $firstName, $lastName, $gradYear, $profilePic, $hasSetUpProfile)
